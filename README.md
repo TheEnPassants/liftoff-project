@@ -1,7 +1,7 @@
 # liftoff-project
 
 Web application that manages appointments between fitness trainers and clients.
-Each appointmaint will assign client with fitness trainer and work-out based on client's informations.
+Each appointmaint will assign client with fitness trainer and work-out plan based on client's informations.
 User has access to informations of all clients and trainers and full schedule of all appointments.
 Initially it is dedicated to a Gym Manager with an idea of extending it to Clients and Fitness Trainers.
 
