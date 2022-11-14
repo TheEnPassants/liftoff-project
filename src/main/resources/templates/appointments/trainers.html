@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>trainers</title>
+</head>
+<body>
+
+<h1>Trainers</h1>
+
+<ul>
+    <th:block th:each="trainer : ${trainers}">
+        <li th:text="${trainer}"></li>
+    </th:block>
+
+</ul>
+
+<ul>
+    <li><a href="/trainers/add-trainer">Add Trainer</a></li>
+</ul>
+
+</body>
+</html>

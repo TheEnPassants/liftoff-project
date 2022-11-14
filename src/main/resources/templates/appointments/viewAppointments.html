@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Appointments</title>
+</head>
+<body>
+<ul>
+  <th:block th:each="appointment : ${appointments}">
+    <li th:text="${appointment}"></li>
+  </th:block>
+</ul>
+</body>
+</html>

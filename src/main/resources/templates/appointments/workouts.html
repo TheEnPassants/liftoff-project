@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>workouts</title>
+</head>
+<body>
+
+<h1>Workouts</h1>
+<ul>
+    <th:block th:each="workout : ${workouts}">
+        <li th:text="${workout}"></li>
+    </th:block>
+
+</ul>
+
+<ul>
+    <li><a href="/workouts/add-workout">Add Work Out</a></li>
+</ul>
+
+</body>
+</html>

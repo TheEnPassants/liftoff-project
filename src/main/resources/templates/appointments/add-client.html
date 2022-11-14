@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Client</title>
+</head>
+<body>
+<form method="post" action ="/clients/add-client">
+    <label for="firstName">First Name</label>
+    <input id = "firstName" type="text" name="firstName"  >
+    <label for="lastName">Last Name</label>
+    <input id = "lastName" type="text" name="lastName" >
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    <label for="dateOfBirth">Date Of Birth</label>
+    <input type="date" id="dateOfBirth" name="dateOfBirth">
+    <label for="note">Note</label>
+    <textarea id="note" name="note" rows="4" cols="50"></textarea>
+    <input type="submit" value="Add Client">
+</form>
+</body>
+</html>
