@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Appointment</title>
+</head>
+<body>
+<form method="post" action ="/appointments/create">
+    <label for="trainerName">Fitness Trainer</label>
+     <input id = "trainerName" type="text" name="trainerName"  >
+    <label for="clientName">Client</label>
+     <input id = "clientName" type="text" name="clientName" >
+    <label for="workoutPlan">Workout</label>
+     <input id = "workoutPlan" type="text" name="workoutPlan" >
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date">
+    <label for="time">Time</label>
+    <input type="time" id="time" name="time">
+  <input type="submit" value="Create Appointment">
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action ="/trainers/add-trainer">
+    <label for="firstName">First Name</label>
+    <input id = "firstName" type="text" name="firstName"  >
+    <label for="lastName">Last Name</label>
+    <input id = "lastName" type="text" name="lastName" >
+    <label for="phone">Phone Number(xxx-xxx-xxxx)</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+
+    <input type="submit" value="Add Client">
+</form>
+</body>
+</html>

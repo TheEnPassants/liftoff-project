@@ -3,15 +3,36 @@ package org.launchcode.liftoffproject.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
 @RequestMapping("clients")
 public class ClientController {
-    @GetMapping
-    public String Clients(Model model) {
 
-        return "liftoffProject/clients";
+    private static List<String> clients = new ArrayList<>();
+    @GetMapping
+    public String displayClients(Model model) {
+        model.addAttribute("clients",clients);
+        return "appointments/clients";
     }
+
+    @GetMapping("add-client")
+    public String renderAppointmentForm()
+    {
+        return "appointments/add-client";
+    }
+    @PostMapping("add-client")
+    public String createAppointment(@RequestParam String firstName,@RequestParam String lastName ){
+        clients.add((firstName + " " + lastName));
+        return "redirect:";
+    }
+
+
+
 }

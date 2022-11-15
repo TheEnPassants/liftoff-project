@@ -9,7 +9,14 @@
 <h1>Clients</h1>
 
 <ul>
+    <th:block th:each="client : ${clients}">
+        <li th:text="${client}"></li>
+    </th:block>
 
+</ul>
+
+<ul>
+    <li><a href="/clients/add-client">Add Client</a></li>
 </ul>
 
 </body>

@@ -11,6 +11,6 @@ public class WorkoutController {
     @GetMapping
     public String Workouts(Model model) {
 
-        return "liftoffProject/workouts";
+        return "appointments/workouts";
     }
 }
