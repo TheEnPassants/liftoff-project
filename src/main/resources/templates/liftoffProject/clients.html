@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>clients</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head> <!--Replaces using th:replace="(file_name) :: (name in file)-->
+<body class="container">
 
 <h1>Clients</h1>
-
 <ul>
-
+    <nav th:replace="fragments :: navigation"></nav>
 </ul>
 
 </body>

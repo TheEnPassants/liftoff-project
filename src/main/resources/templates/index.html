@@ -1,27 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Coding Events</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head> <!--Replaces using th:replace="(file_name) :: (name in file)-->
+<body class="container">
+
+    <div class="text-center">
+        <img src="templates/liftoffProject/MMG border images/Main Logo.png" class="rounded" alt="Main Logo">
+    </div>
 
 <h1> Gym Manager </h1>
-
-<nav>
     <ul>
-        <li><a href="/appointments">Appointments</a></li>
+    <nav th:replace="fragments :: navigation"></nav>
     </ul>
-    <ul>
-        <li><a href="/clients">Clients</a></li>
-    </ul>
-    <ul>
-        <li><a href="/trainers">Trainers</a></li>
-    </ul>
-    <ul>
-        <li><a href="/workouts">Workouts</a></li>
-    </ul>
-</nav>
-
 </body>
 </html>

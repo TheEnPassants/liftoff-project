@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>appointments</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head> <!--Replaces using th:replace="(file_name) :: (name in file)-->
+<body class="container">
 
 <h1>Appointments</h1>
-
+<nav th:replace="fragments :: navigation"></nav>
 <ul>
     <th:block th:each="appointment : ${appointments}">
         <li th:text="${appointment}"></li>

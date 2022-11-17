@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MMG</title> <!--   homepage title-->
+
+<!--   THIS IS HOW YOU SOURCE OPEN SOURCE CODE FROM A DIFFERENT SERVER THATS ALREADY BEEN DEFINED (CSS AND BOOTSTRAP)-->
+<!--   VISIT THE SITE https://www.bootstrapcdn.com/ AND COPY PASTE THE LINKS, IGNORE THE BUNDLE LINK ATM-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+<!--   REMEBER TO IGNORE THE BUNDLE LINK ATM-->
+
+
+<!--   THIS HOW YOU LOCAL SOURCE STATIC TEMPLATES-->
+<!--    <script th:src="@{/script.js}"></script>-->
+<!--    <link th:href="@{/styles.css}" rel="stylesheet">-->
+
+</head>
+
+<body>
+
+   <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navigation">
+
+<!--      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--         <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
+         <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/"> Gym Manager</a>
+            <a class="nav-item nav-link" href="/appointments">Appointments</a>
+            <a class="nav-item nav-link" href="/clients">Clients</a>
+            <a class="nav-item nav-link" href="/trainers">Trainers</a>
+            <a class="nav-item nav-link" href="/workouts">Workouts</a>
+         </div>
+      </div>
+   </nav>
+<!--   <nav  class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navigation">-->
+<!--   <ul class="nav" >-->
+<!--      <li class="nav" ><a href="/appointments">Appointments</a></li>-->
+<!--   </ul>-->
+<!--   <ul class="nav">-->
+<!--      <li class="nav" ><a href="/clients">Clients</a></li>-->
+<!--   </ul>-->
+<!--   <ul class="nav">-->
+<!--      <li class="nav" ><a href="/trainers">Trainers</a></li>-->
+<!--   </ul>-->
+<!--   <ul class="nav">-->
+<!--      <li class="nav" ><a href="/workouts">Workouts</a></li>-->
+<!--   </ul>-->
+<!--</nav>-->
+</body>
+</html>
