@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Appointment</title>
-</head>
+<head th:replace = "fragments :: head"></head>
 <body>
 <form method="post" action ="/appointments/create">
     <label for="trainerName">Fitness Trainer</label>
