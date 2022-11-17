@@ -3,13 +3,34 @@
 <head th:replace="fragments :: head"></head> <!--Replaces using th:replace="(file_name) :: (name in file)-->
 <body class="container">
 
-<h1>Appointments</h1>
-<nav th:replace="fragments :: navigation"></nav>
-<ul>
-    <th:block th:each="appointment : ${appointments}">
-        <li th:text="${appointment}"></li>
-    </th:block>
-</ul>
 
+<table class="table">
+    <tr>
+        <div class="text-center">
+            <img th:src = "@{/images/MainLogo.png}" />
+        </div></tr>
+    <tr>
+        <th scope="col">
+            <div class="rounded float-left" >
+                <img th:src = "@{/images/SidePanelLogo.png}" />
+            </div>
+        </th>
+        <th scope="col">
+            <h1 class="text-center"> Appointments </h1>
+            <ul>
+                <nav th:replace="fragments :: navigation"></nav>
+                <th:block th:each="appointment : ${appointments}">
+                    <li th:text="${appointment}"></li>
+                </th:block>
+            </ul>
+        </th>
+        <th scope="col">
+            <div class="rounded float-right" >
+                <img th:src = "@{/images/SidePanelLogo.png}" />
+            </div>
+        </th>
+    </tr>
+
+</table>
 </body>
 </html>
