@@ -7,7 +7,7 @@
 <body>
 
 <h1>Trainers</h1>
-
+<p th:unless="${trainers} and ${trainers.size()}"> No Fitness Trainers, yet!</p>
 <ul>
     <th:block th:each="trainer : ${trainers}">
         <li th:text="${trainer}"></li>
