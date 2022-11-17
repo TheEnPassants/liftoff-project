@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace = "fragments :: head"></head>
-<body>
+<body class = "container">
 
 <h1>Appointments</h1>
 <p th:unless="${appointments} and ${appointments.size()}">No Appontments!</p>
-<ul>
-    <th:block th:each="appointment : ${appointments}">
-        <li th:text="${appointment}"></li>
-    </th:block>
+<table class ="table table-striped">
+    <thead>
+    <tr>
+        <th></th>
+    </tr>
+    </thead>
+    <tr th:each="appointment : ${appointments}">
+        <td th:text="${appointment}"></td>
+    </tr>
 
-</ul>
+</table>
 
 <ul>
     <li><a href="/appointments/create">Create Appointment</a></li>

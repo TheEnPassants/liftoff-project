@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace = "fragments :: head"></head>
-<body>
+<body class = "container">
 <form method="post" action ="/clients/add-client">
+    <div class ="form-group">
     <label for="firstName">First Name</label>
-    <input id = "firstName" type="text" name="firstName"  >
+    <input class="form-control" id = "firstName" type="text" name="firstName"  >
+    </div>
+    <div class ="form-group">
     <label for="lastName">Last Name</label>
-    <input id = "lastName" type="text" name="lastName" >
+    <input class="form-control" id = "lastName" type="text" name="lastName" >
+    </div>
+    <div class ="form-group">
     <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    <input class="form-control" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    </div>
+    <div class ="form-group">
     <label for="dateOfBirth">Date Of Birth</label>
-    <input type="date" id="dateOfBirth" name="dateOfBirth">
+    <input class="form-control" type="date" id="dateOfBirth" name="dateOfBirth">
+    </div>
+    <div class ="form-group">
     <label for="note">Note</label>
-    <textarea id="note" name="note" rows="4" cols="50"></textarea>
-    <input type="submit" value="Add Client">
+    <textarea class="form-control" id="note" name="note" rows="4" cols="50"></textarea>
+    </div>
+    <div class ="form-group">
+    <input class="btn btn-success" type="submit" value="Add Client">
+    </div>
 </form>
 </body>
 </html>

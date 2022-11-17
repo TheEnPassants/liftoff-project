@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace = "fragments :: head"></head>
-<body>
+<body class = "container">
 
 <h1>Trainers</h1>
 <p th:unless="${trainers} and ${trainers.size()}">No Fitness Trainers!</p>
-<ul>
-    <th:block th:each="trainer : ${trainers}">
-        <li th:text="${trainer}"></li>
-    </th:block>
-
-</ul>
+<table class ="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tr th:each="trainer : ${trainers}">
+        <td th:text="${trainer}"></td>
+    </tr>
 
 <ul>
     <li><a href="/trainers/add-trainer">Add Trainer</a></li>

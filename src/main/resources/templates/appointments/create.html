@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace = "fragments :: head"></head>
-<body>
+<body class = "container">
 <form method="post" action ="/appointments/create">
+    <div class ="form-group">
     <label for="trainerName">Fitness Trainer</label>
-     <input id = "trainerName" type="text" name="trainerName"  >
+     <input class="form-control" id = "trainerName" type="text" name="trainerName" >
+    </div>
+    <div class ="form-group">
     <label for="clientName">Client</label>
-     <input id = "clientName" type="text" name="clientName" >
+     <input class="form-control" id = "clientName" type="text" name="clientName" >
+    </div>
+    <div class ="form-group">
     <label for="workoutPlan">Workout</label>
-     <input id = "workoutPlan" type="text" name="workoutPlan" >
+     <input class="form-control" id = "workoutPlan" type="text" name="workoutPlan" >
+    </div>
+    <div class ="form-group">
     <label for="date">Date</label>
-    <input type="date" id="date" name="date">
+    <input class="form-control" type="date" id="date" name="date">
+    </div>
+    <div class ="form-group">
     <label for="time">Time</label>
-    <input type="time" id="time" name="time">
-  <input type="submit" value="Create Appointment">
+    <input class="form-control" type="time" id="time" name="time">
+    </div>
+    <div class ="form-group">
+  <input class="btn btn-success" type="submit" value="Create Appointment">
+    </div>
 </form>
 </body>
 </html>
