@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:fragment ="head">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Gym Manager</title>
+</head>
+<body>
+<nav th:fragment = "navigation">
+
+    <ul class ="nav">
+        <li class = "nav-item"><a href="/appointments">Appointments</a></li>
+    </ul>
+    <ul class ="nav">
+        <li class="nav-item"><a href="/clients">Clients</a></li>
+    </ul>
+    <ul class ="nav">
+        <li class="nav-item"><a href="/trainers">Trainers</a></li>
+    </ul>
+    <ul class ="nav">
+        <li class="nav-item"><a href="/workouts">Workouts</a></li>
+    </ul>
+</nav>
+</body>
+</html>

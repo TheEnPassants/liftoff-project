@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>clients</title>
-</head>
-<body>
+<head th:replace = "fragments :: head"></head>
+<body class = "container">
 
 <h1>Clients</h1>
-
-<ul>
-    <th:block th:each="client : ${clients}">
-        <li th:text="${client}"></li>
-    </th:block>
-
-</ul>
+<p th:unless="${clients} and ${clients.size()}">No Clients!</p>
+<table class ="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Note</th>
+    </tr>
+    </thead>
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.id}"  ></td>
+        <td th:text="${client.fName + ' ' + client.lName}"  ></td>
+        <td th:text="${client.dob}"></td>
+        <td th:text="${client.phone}"></td>
+        <td th:text="${client.email}"></td>
+        <td th:text="${client.note}"></td>
+    </tr>
+</table>
 
 <ul>
     <li><a href="/clients/add-client">Add Client</a></li>

@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>appointments</title>
-</head>
-<body>
+<head th:replace = "fragments :: head"></head>
+<body class = "container">
 
 <h1>Appointments</h1>
+<p th:unless="${appointments} and ${appointments.size()}">No Appointments!</p>
+<table class ="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Fitness Trainer</th>
+        <th>Client</th>
+        <th>Work Out</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+    </thead>
+    <tr th:each="appointment : ${appointments}">
+        <td th:text="${appointment.id}"></td>
+        <td th:text="${appointment.trainer.fName}"></td>
+        <td th:text="${appointment.client.fName}"></td>
 
-<ul>
-    <th:block th:each="appointment : ${appointments}">
-        <li th:text="${appointment}"></li>
-    </th:block>
+    </tr>
 
-</ul>
+</table>
 
 <ul>
     <li><a href="/appointments/create">Create Appointment</a></li>
