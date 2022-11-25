@@ -1,5 +1,6 @@
 package org.launchcode.liftoffproject.controllers;
 
+import org.launchcode.liftoffproject.data.ClientData;
 import org.launchcode.liftoffproject.models.Client;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,21 +18,21 @@ import java.util.List;
 @RequestMapping("clients")
 public class ClientController {
 
-    private static List<Client> clients = new ArrayList<>();
+
     @GetMapping
     public String displayClients(Model model) {
-        model.addAttribute("clients",clients);
+        model.addAttribute("clients", ClientData.getAll());
         return "appointments/clients";
     }
 
     @GetMapping("add-client")
-    public String renderAppointmentForm()
+    public String renderClientForm()
     {
         return "appointments/add-client";
     }
     @PostMapping("add-client")
-    public String createAppointment(@RequestParam String fName,@RequestParam String lName,@RequestParam String dob,@RequestParam String phone,@RequestParam String email,@RequestParam String note  ){
-        clients.add(( new Client(fName,lName,dob,phone,email,note)));
+    public String addClient(@RequestParam String fName,@RequestParam String lName,@RequestParam String dob,@RequestParam String phone,@RequestParam String email,@RequestParam String note  ){
+        ClientData.add(( new Client(fName,lName,dob,phone,email,note)));
         return "redirect:";
     }
 

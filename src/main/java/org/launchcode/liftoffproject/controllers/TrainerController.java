@@ -1,5 +1,6 @@
 package org.launchcode.liftoffproject.controllers;
 
+import org.launchcode.liftoffproject.data.TrainerData;
 import org.launchcode.liftoffproject.models.Trainer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,11 @@ import java.util.List;
 @Controller
 @RequestMapping("trainers")
 public class TrainerController {
-        private static List<Trainer> trainers = new ArrayList<>();
+
 
     @GetMapping
     public String displayTrainers(Model model) {
-        model.addAttribute("trainers",trainers);
+        model.addAttribute("trainers", TrainerData.getAll());
         return "appointments/trainers";
     }
 
@@ -29,7 +30,7 @@ public class TrainerController {
     }
     @PostMapping("add-trainer")
     public String addTrainer(@RequestParam String fName, @RequestParam String lName, @RequestParam String phone,  @RequestParam String email ){
-        trainers.add((new Trainer(fName,lName,phone,email)));
+        TrainerData.add((new Trainer(fName,lName,phone,email)));
         return "redirect:";
     }
 
