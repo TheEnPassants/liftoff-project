@@ -4,15 +4,23 @@
 <body class = "container">
 
 <h1>Appointments</h1>
-<p th:unless="${appointments} and ${appointments.size()}">No Appontments!</p>
+<p th:unless="${appointments} and ${appointments.size()}">No Appointments!</p>
 <table class ="table table-striped">
     <thead>
     <tr>
-        <th></th>
+        <th>ID</th>
+        <th>Fitness Trainer</th>
+        <th>Client</th>
+        <th>Work Out</th>
+        <th>Date</th>
+        <th>Time</th>
     </tr>
     </thead>
     <tr th:each="appointment : ${appointments}">
-        <td th:text="${appointment.name}"></td>
+        <td th:text="${appointment.id}"></td>
+        <td th:text="${appointment.trainer.fName}"></td>
+        <td th:text="${appointment.client.fName}"></td>
+
     </tr>
 
 </table>

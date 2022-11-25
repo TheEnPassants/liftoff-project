@@ -30,8 +30,8 @@ public class ClientController {
         return "appointments/add-client";
     }
     @PostMapping("add-client")
-    public String createAppointment(@RequestParam String fName,@RequestParam String lName, @RequestParam String note ,@RequestParam String phone,@RequestParam String dob ){
-        clients.add(( new Client(fName,lName,note,phone,dob)));
+    public String createAppointment(@RequestParam String fName,@RequestParam String lName,@RequestParam String dob,@RequestParam String phone,@RequestParam String email,@RequestParam String note  ){
+        clients.add(( new Client(fName,lName,dob,phone,email,note)));
         return "redirect:";
     }
 

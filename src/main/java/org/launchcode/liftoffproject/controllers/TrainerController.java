@@ -28,8 +28,8 @@ public class TrainerController {
         return "appointments/add-trainer";
     }
     @PostMapping("add-trainer")
-    public String addTrainer(@RequestParam String fName, @RequestParam String lName, @RequestParam String phone ){
-        trainers.add((new Trainer(fName,lName,phone)));
+    public String addTrainer(@RequestParam String fName, @RequestParam String lName, @RequestParam String phone,  @RequestParam String email ){
+        trainers.add((new Trainer(fName,lName,phone,email)));
         return "redirect:";
     }
 

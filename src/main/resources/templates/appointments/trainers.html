@@ -8,11 +8,18 @@
 <table class ="table">
     <thead>
     <tr>
+        <th>ID</th>
         <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
     </tr>
     </thead>
     <tr th:each="trainer : ${trainers}">
-        <td th:text="${trainer.toString()}"></td>
+        <td th:text="${trainer.id}"  ></td>
+        <td th:text="${trainer.fName + ' ' + trainer.lName}"  ></td>
+        <td th:text="${trainer.phone}"></td>
+        <td th:text="${trainer.email}"></td>
+
     </tr>
 
 <ul>

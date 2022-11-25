@@ -4,17 +4,51 @@ package org.launchcode.liftoffproject.models;
 import java.util.Date;
 
 public class Client {
-    public String fName;
-    public String lName;
-    public String phone;
-    public String dob;
-    public String note;
-    public Client(String fName,String lName,String note, String phone, String dob){
+    private int id;
+    private static int nextId = 1;
+    private String fName;
+    private String lName;
+    private String phone;
+    private String dob;
+    private String email;
+    private String note;
+    public Client(String fName,String lName,String dob, String phone,String email,String note){
         this.fName = fName;
         this.lName = lName;
         this.phone = phone;
+        this.email = email;
         this.dob = dob;
         this.note = note;
+        this.id = nextId;
+        nextId++;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public String getfName() {
