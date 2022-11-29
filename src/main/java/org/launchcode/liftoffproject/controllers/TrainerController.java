@@ -1,5 +1,6 @@
 package org.launchcode.liftoffproject.controllers;
 
+import org.launchcode.liftoffproject.data.ClientData;
 import org.launchcode.liftoffproject.data.TrainerData;
 import org.launchcode.liftoffproject.models.Trainer;
 import org.springframework.stereotype.Controller;
@@ -34,5 +35,21 @@ public class TrainerController {
         return "redirect:";
     }
 
+    @GetMapping("delete-trainer")
+    public String displayDeleteClientForm(Model model){
+        model.addAttribute("title","delete-trainer");
+        model.addAttribute("trainers", TrainerData.getAll());
+        return "appointments/delete-trainer";
+    }
 
+    @PostMapping("delete-trainer")
+    public String deleteClient(@RequestParam(required = false) int [] trainerIds){
+
+        if(trainerIds != null) {
+            for (int id : trainerIds) {
+                TrainerData.remove(id);
+            }
+        }
+        return "redirect:";
+    }
 }

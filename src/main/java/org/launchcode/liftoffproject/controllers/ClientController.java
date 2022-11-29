@@ -36,6 +36,22 @@ public class ClientController {
         return "redirect:";
     }
 
+    @GetMapping("delete-client")
+    public String displayDeleteClientForm(Model model){
+        model.addAttribute("title","delete-client");
+        model.addAttribute("clients",ClientData.getAll());
+        return "appointments/delete-client";
+    }
 
+    @PostMapping("delete-client")
+    public String deleteClient(@RequestParam(required = false) int [] clientIds){
+
+        if(clientIds != null) {
+            for (int id : clientIds) {
+                ClientData.remove(id);
+            }
+        }
+       return "redirect:";
+    }
 
 }
