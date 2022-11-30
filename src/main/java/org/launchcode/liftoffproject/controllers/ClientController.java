@@ -4,10 +4,7 @@ import org.launchcode.liftoffproject.data.ClientData;
 import org.launchcode.liftoffproject.models.Client;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,8 +28,8 @@ public class ClientController {
         return "appointments/add-client";
     }
     @PostMapping("add-client")
-    public String addClient(@RequestParam String fName,@RequestParam String lName,@RequestParam String dob,@RequestParam String phone,@RequestParam String email,@RequestParam String note  ){
-        ClientData.add(( new Client(fName,lName,dob,phone,email,note)));
+    public String addClient(@ModelAttribute Client newClient){
+        ClientData.add(newClient);
         return "redirect:";
     }
 
