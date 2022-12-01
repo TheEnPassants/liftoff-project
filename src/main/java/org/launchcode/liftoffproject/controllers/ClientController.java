@@ -4,11 +4,10 @@ import org.launchcode.liftoffproject.data.ClientData;
 import org.launchcode.liftoffproject.models.Client;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import javax.validation.Valid;
 
 
 @Controller
@@ -23,12 +22,18 @@ public class ClientController {
     }
 
     @GetMapping("add-client")
-    public String renderClientForm()
+    public String renderClientForm(Model model)
     {
+        model.addAttribute("title","Add Client");
+        model.addAttribute(new Client());
         return "appointments/add-client";
     }
     @PostMapping("add-client")
-    public String addClient(@ModelAttribute Client newClient){
+    public String addClient(@ModelAttribute @Valid Client newClient, Errors errors,Model model ){
+        if(errors.hasErrors()){
+            model.addAttribute("title", "Add Client");
+            return "appointments/add-client";
+        }
         ClientData.add(newClient);
         return "redirect:";
     }

@@ -1,14 +1,13 @@
 package org.launchcode.liftoffproject.controllers;
 
-import org.launchcode.liftoffproject.data.ClientData;
 import org.launchcode.liftoffproject.data.TrainerData;
 import org.launchcode.liftoffproject.models.Trainer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("trainers")
@@ -22,12 +21,18 @@ public class TrainerController {
     }
 
     @GetMapping("add-trainer")
-    public String renderAppointmentForm()
+    public String renderAppointmentForm(Model model)
     {
+        model.addAttribute("title","Add Trainer");
+        model.addAttribute(new Trainer());
         return "appointments/add-trainer";
     }
     @PostMapping("add-trainer")
-    public String addTrainer(@ModelAttribute Trainer newTrainer){
+    public String addTrainer(@ModelAttribute @Valid Trainer newTrainer, Errors errors,Model model){
+        if(errors.hasErrors()){
+            model.addAttribute("title", "Add Trainer");
+            return "appointments/add-trainer";
+        }
         TrainerData.add(newTrainer);
         return "redirect:";
     }
@@ -41,6 +46,7 @@ public class TrainerController {
 
     @PostMapping("delete-trainer")
     public String deleteClient(@RequestParam(required = false) int [] trainerIds){
+
 
         if(trainerIds != null) {
             for (int id : trainerIds) {

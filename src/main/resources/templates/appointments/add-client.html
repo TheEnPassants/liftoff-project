@@ -5,11 +5,13 @@
 <form method="post" action ="/clients/add-client">
     <div class ="form-group">
     <label for="firstName">First Name</label>
-    <input class="form-control" id = "firstName" type="text" name="fName"  >
+    <input th:field = "${client.fName}" class="form-control" id = "firstName"   >
+        <p class="error" th:errors="${client.fName}"></p>
     </div>
     <div class ="form-group">
     <label for="lastName">Last Name</label>
-    <input class="form-control" id = "lastName" type="text" name="lName" >
+    <input class="form-control" id = "lastName" th:field = "${client.lName}" >
+        <p class="error" th:errors="${client.lName}"></p>
     </div>
     <div class ="form-group">
         <label for="dateOfBirth">Date Of Birth</label>
@@ -17,16 +19,18 @@
     </div>
     <div class ="form-group">
     <label for="phone">Phone Number</label>
-    <input class="form-control" type="number" id="phone" name="phone" >
+    <input class="form-control"  id="phone" th:field = "${client.phone}" >
+        <p class="error" th:errors="${client.phone}"></p>
     </div>
     <div class ="form-group">
         <label for="email">Email</label>
-        <input class="form-control" type="text" id="email" name="email">
+        <input class="form-control"  id="email" th:field = "${client.email}">
+        <p class="error" th:errors="${client.email}"></p>
     </div>
 
     <div class ="form-group">
     <label for="note">Note</label>
-    <textarea class="form-control" id="note" name="note" rows="4" cols="50"></textarea>
+    <textarea class="form-control" id="note" th:field = "${client.note}" rows="4" cols="50"></textarea>
     </div>
     <div class ="form-group">
     <input class="btn btn-success" type="submit" value="Add Client">
