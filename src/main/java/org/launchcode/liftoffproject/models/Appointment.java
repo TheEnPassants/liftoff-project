@@ -1,5 +1,5 @@
 package org.launchcode.liftoffproject.models;
-import java.util.Date;
+
 import java.util.Objects;
 
 public class Appointment {
@@ -7,19 +7,38 @@ public class Appointment {
     private static int nextId = 1;
     private Client client;
     private Trainer trainer;
-    private Date date;
-    private Date time;
-    public Appointment(Trainer trainer,Client client,Date date, Date time) {
+    private String date;
+    private String time;
+    private WorkoutLevel level;
+    private WorkoutType type;
+
+    public WorkoutLevel getLevel() {
+        return level;
+    }
+
+    public void setLevel(WorkoutLevel level) {
+        this.level = level;
+    }
 
 
+
+    public Appointment(Client client,Trainer trainer,  String date, String time, WorkoutType type, WorkoutLevel level) {
+
+        this();
         this.client = client;
         this.trainer = trainer;
         this.date = date;
         this.time = time;
-        this.id =nextId;
-        nextId ++;
+        this.level = level;
+        this.type = type;
+
 
     }
+    public Appointment(){
+        this.id =nextId;
+        nextId ++;
+    }
+
 
     public int getId() {
         return id;
@@ -41,11 +60,11 @@ public class Appointment {
             this.trainer = trainer;
         }
 
-        public Date getDate () {
+        public String getDate () {
             return date;
         }
 
-        public void setDate (Date date){
+        public void setDate (String date){
             this.date = date;
         }
 
@@ -62,12 +81,19 @@ public class Appointment {
         return Objects.hash(id);
     }
 
-    public Date getTime () {
+    public String getTime () {
             return time;
         }
 
-        public void setTime (Date time){
+        public void setTime (String time){
             this.time = time;
         }
+    public WorkoutType getType() {
+        return type;
+    }
+
+    public void setType(WorkoutType type) {
+        this.type = type;
+    }
 
     }

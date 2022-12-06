@@ -1,8 +1,6 @@
 package org.launchcode.liftoffproject.models;
 
 
-import java.util.Date;
-
 public class Client {
     private int id;
     private static int nextId = 1;
@@ -12,13 +10,17 @@ public class Client {
     private String dob;
     private String email;
     private String note;
-    public Client(String fName,String lName,String dob, String phone,String email,String note){
+    public Client(String fName,String lName,String dob,String phone,String email,String note){
+        this();
         this.fName = fName;
         this.lName = lName;
         this.phone = phone;
         this.email = email;
         this.dob = dob;
         this.note = note;
+
+    }
+    public Client(){
         this.id = nextId;
         nextId++;
     }

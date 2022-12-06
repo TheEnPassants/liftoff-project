@@ -9,9 +9,10 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Fitness Trainer</th>
+        <th>Trainer</th>
         <th>Client</th>
-        <th>Work Out</th>
+        <th>Type</th>
+        <th>Level</th>
         <th>Date</th>
         <th>Time</th>
     </tr>
@@ -20,6 +21,10 @@
         <td th:text="${appointment.id}"></td>
         <td th:text="${appointment.trainer.fName}"></td>
         <td th:text="${appointment.client.fName}"></td>
+        <td th:text="${appointment.type.displayName}"></td>
+        <td th:text="${appointment.level.displayName}"></td>
+        <td th:text="${appointment.date}"></td>
+        <td th:text="${appointment.time}"></td>
 
     </tr>
 
@@ -27,6 +32,7 @@
 
 <ul>
     <li><a href="/appointments/create">Create Appointment</a></li>
+    <li><a href="/appointments/delete-appointment">Delete Appointment</a></li>
 </ul>
 
 

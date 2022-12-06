@@ -10,13 +10,17 @@ public class Trainer {
     private String phone;
     private String email;
     public Trainer(String fName,String lName,String phone,String email){
+        this();
         this.fName = fName;
         this.lName = lName;
         this.phone = phone;
         this.email = email;
+
+
+    }
+    public Trainer(){
         this.id = nextId;
         nextId++;
-
     }
 
     public int getId() {
