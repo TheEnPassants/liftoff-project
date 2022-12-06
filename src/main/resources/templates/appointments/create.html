@@ -3,18 +3,7 @@
 <head th:replace = "fragments :: head"></head>
 <body class = "container">
 <form method="post" action ="/appointments/create">
-    <div class ="form-group">
-    <label for="trainerName">Fitness Trainer</label>
-     <input class="form-control" id = "trainerName" type="text" name="trainerName" >
-    </div>
-    <div class ="form-group">
-    <label for="clientName">Client</label>
-     <input class="form-control" id = "clientName" type="text" name="clientName" >
-    </div>
-    <div class ="form-group">
-    <label for="workoutPlan">Workout</label>
-     <input class="form-control" id = "workoutPlan" type="text" name="workoutPlan" >
-    </div>
+
     <div class ="form-group">
     <label for="date">Date</label>
     <input class="form-control" type="date" id="date" name="date">
@@ -23,6 +12,53 @@
     <label for="time">Time</label>
     <input class="form-control" type="time" id="time" name="time">
     </div>
+    <div class = "form-group">
+        <lebel>Client
+            <select th:name = "client" >
+                <option th:each = "client : ${clients}"
+                        th:value = "${client.id}"
+                        th:text = "${client.fName} + ' ' + ${client.lName} ">
+                </option>
+            </select>
+        </lebel>
+    </div>
+
+    <div class = "form-group">
+        <lebel>Trainer
+            <select th:name = "trainer">
+                <option th:each = "trainer : ${trainers}"
+                        th:value = "${trainer.id}"
+                        th:text = "${trainer.fName} + ' ' + ${trainer.lName}  ">
+                </option>
+            </select>
+        </lebel>
+    </div>
+
+
+
+
+    <div class = "form-group">
+        <lebel>Type
+            <select th:name = "type">
+                <option th:each = "type : ${types}"
+                        th:value = "${type}"
+                        th:text = "${type.displayName}">
+                </option>
+            </select>
+        </lebel>
+    </div>
+    <div class = "form-group">
+        <lebel>Level
+            <select th:name="level">
+                <option th:each = " level : ${levels}"
+                        th:value = "${level}"
+                        th:text = "${level.displayName}">
+                </option>
+            </select>
+        </lebel>
+    </div>
+
+
     <div class ="form-group">
   <input class="btn btn-success" type="submit" value="Create Appointment">
     </div>
