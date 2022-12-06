@@ -4,7 +4,7 @@
 <body class = "container">
 
 <h1>Appointments</h1>
-<p th:unless="${appointments} and ${appointments.size()}">No Appointments!</p>
+<nav th:replace = "fragments :: navigation"></nav>
 <table class ="table table-striped">
     <thead>
     <tr>
@@ -29,6 +29,7 @@
     </tr>
 
 </table>
+<p th:unless="${appointments} and ${appointments.size()}">No Appointments!</p>
 
 <ul>
     <li><a href="/appointments/create">Create Appointment</a></li>
