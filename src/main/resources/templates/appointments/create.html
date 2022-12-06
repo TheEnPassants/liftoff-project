@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace = "fragments :: head"></head>
 <body class = "container">
+<nav th:replace = "fragments :: navigation"></nav>
 <form method="post" action ="/appointments/create">
 
     <div class ="form-group">
@@ -14,7 +15,7 @@
     </div>
     <div class = "form-group">
         <lebel>Client
-            <select th:name = "client" >
+            <select class="form-select form-select-lg" th:name = "client" >
                 <option th:each = "client : ${clients}"
                         th:value = "${client.id}"
                         th:text = "${client.fName} + ' ' + ${client.lName} ">
@@ -25,7 +26,7 @@
 
     <div class = "form-group">
         <lebel>Trainer
-            <select th:name = "trainer">
+            <select class="form-select form-select-lg" th:name = "trainer">
                 <option th:each = "trainer : ${trainers}"
                         th:value = "${trainer.id}"
                         th:text = "${trainer.fName} + ' ' + ${trainer.lName}  ">
@@ -39,7 +40,7 @@
 
     <div class = "form-group">
         <lebel>Type
-            <select th:name = "type">
+            <select class="form-select form-select-lg" th:name = "type">
                 <option th:each = "type : ${types}"
                         th:value = "${type}"
                         th:text = "${type.displayName}">
@@ -49,7 +50,7 @@
     </div>
     <div class = "form-group">
         <lebel>Level
-            <select th:name="level">
+            <select class="form-select form-select-lg" th:name="level">
                 <option th:each = " level : ${levels}"
                         th:value = "${level}"
                         th:text = "${level.displayName}">

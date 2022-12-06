@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace = "fragments :: head"></head>
 <body class = "container">
+<nav th:replace = "fragments :: navigation"></nav>
 <form method="post" action ="/trainers/add-trainer">
     <div class ="form-group">
     <label for="firstName">First Name</label>
