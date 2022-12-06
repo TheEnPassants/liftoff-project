@@ -4,16 +4,16 @@
 <body class = "container">
 
 <h1>Clients</h1>
-<p th:unless="${clients} and ${clients.size()}">No Clients!</p>
-<table class ="table">
+<nav th:replace = "fragments :: nav"></nav>
+<table class ="table table-striped">
     <thead>
     <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>DOB</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Note</th>
+        <th  >ID</th>
+        <th  >Name</th>
+        <th  >DOB</th>
+        <th  >Phone</th>
+        <th  >Email</th>
+        <th  >Note</th>
     </tr>
     </thead>
     <tr th:each="client : ${clients}">
@@ -25,12 +25,13 @@
         <td th:text="${client.note}"></td>
     </tr>
 </table>
+<p th:unless="${clients} and ${clients.size()}">No Clients!</p>
 
 <ul>
     <li><a href="/clients/add-client">Add Client</a></li>
     <li><a href="/clients/delete-client">Delete Client</a></li>
 </ul>
-<nav th:replace = "fragments :: navigation"></nav>
+
 
 </body>
 </html>

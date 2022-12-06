@@ -4,17 +4,18 @@
 <body class = "container">
 
 <h1>Appointments</h1>
-<p th:unless="${appointments} and ${appointments.size()}">No Appointments!</p>
-<table class ="table table-striped">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Trainer</th>
-        <th>Client</th>
-        <th>Type</th>
-        <th>Level</th>
-        <th>Date</th>
-        <th>Time</th>
+<nav th:replace = "fragments :: nav"></nav>
+
+<table  class ="table table-striped">
+    <thead >
+    <tr >
+        <th >ID</th>
+        <th >Trainer</th>
+        <th >Client</th>
+        <th >Type</th>
+        <th >Level</th>
+        <th >Date</th>
+        <th >Time</th>
     </tr>
     </thead>
     <tr th:each="appointment : ${appointments}">
@@ -29,7 +30,7 @@
     </tr>
 
 </table>
-
+<p th:unless="${appointments} and ${appointments.size()}">No Appointments!</p>
 <ul>
     <li><a href="/appointments/create">Create Appointment</a></li>
     <li><a href="/appointments/delete-appointment">Delete Appointment</a></li>

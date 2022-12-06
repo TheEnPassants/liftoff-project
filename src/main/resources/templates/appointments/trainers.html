@@ -4,14 +4,16 @@
 <body class = "container">
 
 <h1>Trainers</h1>
-<p th:unless="${trainers} and ${trainers.size()}">No Fitness Trainers!</p>
-<table class ="table">
-    <thead>
+<nav th:replace = "fragments :: nav"></nav>
+
+
+ <table class ="table table-striped">
+    <thead >
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
+        <th >Name</th>
+        <th >Phone</th>
+        <th >Email</th>
     </tr>
     </thead>
     <tr th:each="trainer : ${trainers}">
@@ -22,11 +24,13 @@
 
     </tr>
 </table>
+<p th:unless="${trainers} and ${trainers.size()}">No Fitness Trainers!</p>
+
 <ul>
     <li><a href="/trainers/add-trainer">Add Trainer</a></li>
     <li><a href="/trainers/delete-trainer">Delete Trainer</a></li>
 </ul>
-<nav th:replace = "fragments :: navigation"></nav>
+
 
 </body>
 </html>
