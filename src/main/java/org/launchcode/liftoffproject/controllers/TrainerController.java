@@ -4,7 +4,10 @@ import org.launchcode.liftoffproject.data.TrainerData;
 import org.launchcode.liftoffproject.models.Trainer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("trainers")
@@ -25,7 +28,12 @@ public class TrainerController {
         return "appointments/add-trainer";
     }
     @PostMapping("add-trainer")
-    public String addTrainer(@ModelAttribute Trainer newTrainer){
+    public String addTrainer(@ModelAttribute @Valid Trainer newTrainer, Errors errors, Model model){
+        if(errors.hasErrors()){
+            model.addAttribute("title", "Add Trainer");
+            return "appointments/add-trainer";
+        }
+
         TrainerData.add(newTrainer);
         System.out.println(TrainerData.getAll());
         return "redirect:";

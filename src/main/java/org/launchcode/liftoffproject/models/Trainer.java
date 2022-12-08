@@ -1,13 +1,23 @@
 package org.launchcode.liftoffproject.models;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class Trainer {
     private int id;
     private static int nextId = 1;
+    @NotBlank(message = "First Name is required!")
+    @Size(min = 3,max = 30,message = "First Name must be 3-20 characters long!")
     private String fName;
+    @NotBlank(message = "Last Name is required!")
+    @Size(min = 3,max = 30,message = "Last Name must be 3-50 characters long!")
     private String lName;
+    @NotBlank(message = "Phone Number is required!")
     private String phone;
+    @NotBlank(message = "Email Address is required")
+    @Email(message = "Invalid email address!")
     private String email;
     public Trainer(String fName,String lName,String phone,String email){
         this();
@@ -15,8 +25,6 @@ public class Trainer {
         this.lName = lName;
         this.phone = phone;
         this.email = email;
-
-
     }
     public Trainer(){
         this.id = nextId;
