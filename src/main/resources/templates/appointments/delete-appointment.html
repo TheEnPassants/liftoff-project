@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace = "fragments :: head"></head>
-<body class = "container">
-<form method="post">
-
-    <th:block th:each="appointment :${appointments}">
-        <div class ="form-group">
-            <label>
-                <span th:text ="${appointment.id}"></span>
-                <input type="checkbox" name ="appointmentIds" th:value="${appointment.id}" class ="form-control">
-            </label>
-
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<div th:replace="fragments :: topBanner"></div>
+<nav th:replace="fragments :: navigation"></nav>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="fragments :: leftBanner"></div>
+        <div class="col">
+            <form method="post">
+                <th:block th:each="appointment :${appointments}">
+                    <div class="form-group">
+                        <label>
+                            <span th:text="${appointment.id}"></span>
+                            <input type="checkbox" name="appointmentIds" th:value="${appointment.id}">
+                        </label>
+                    </div>
+                </th:block>
+                <br></br>
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
         </div>
-    </th:block>
-
-    <input type="submit" value="Delete" class = "btn btn-danger">
-</form>
+        <div th:replace="fragments :: rightBanner"></div>
+    </div>
+</div>
 </body>
 </html>

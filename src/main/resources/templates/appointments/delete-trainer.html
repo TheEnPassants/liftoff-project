@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace = "fragments :: head"></head>
-<body class = "container">
-<form method="post">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<div th:replace="fragments :: topBanner"></div>
 
-    <th:block th:each="trainer :${trainers}">
-        <div class ="form-group">
-            <label>
-                <span th:text ="${trainer.fName} + ' '+ ${trainer.lName}"></span>
-                <input type="checkbox" name ="trainerIds" th:value="${trainer.id}" class ="form-control">
-            </label>
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="fragments :: leftBanner"></div>
+
+        <div class="col">
+            <form method="post">
+
+                <th:block th:each="trainer :${trainers}">
+                    <div class="form-group">
+                        <label>
+                            <span th:text="${trainer.fName} + ' '+ ${trainer.lName}"></span>
+                            <input type="checkbox" name="trainerIds" th:value="${trainer.id}">
+                        </label>
+                    </div>
+                </th:block>
+                <br></br>
+                <input type="submit" value="Delete" class="btn btn-danger">
 
         </div>
-    </th:block>
 
-    <input type="submit" value="Delete" class = "btn btn-danger">
-</form>
+        <div th:replace="fragments :: rightBanner"></div>
+
+    </div>
+</div>
 </body>
 </html>

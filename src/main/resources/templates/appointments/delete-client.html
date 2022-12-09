@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace = "fragments :: head"></head>
-<body class = "container">
-<form method="post">
+<head th:replace="fragments :: head"></head>
+<body class="container">
 
-        <th:block th:each="client :${clients}">
-            <div class ="form-group">
-            <label>
-                <span th:text ="${client.fName} + ' '+ ${client.lName}"></span>
-                <input type="checkbox" name ="clientIds" th:value="${client.id}" class ="form-control">
-            </label>
+<div th:replace="fragments :: topBanner"></div>
+<nav th:replace="fragments :: navigation"></nav>
 
-            </div>
-        </th:block>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="fragments :: leftBanner"></div>
 
- <input type="submit" value="Delete" class = "btn btn-danger">
-</form>
+        <div class="col">
+            <form method="post">
+                <th:block th:each="client :${clients}">
+                    <div class="form-group">
+                        <label>
+                            <span th:text="${client.fName} + ' '+ ${client.lName}"></span>
+                            <input type="radio" name="clientIds" th:value="${client.id}">
+                        </label>
+                    </div>
+                    <br></br>
+                </th:block>
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        </div>
+        <div th:replace="fragments :: rightBanner"></div>
+    </div>
+</div>
 </body>
 </html>
