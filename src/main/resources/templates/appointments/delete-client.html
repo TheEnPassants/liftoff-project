@@ -6,11 +6,13 @@
 <div th:replace="fragments :: topBanner"></div>
 <nav th:replace="fragments :: navigation"></nav>
 
-<div class="container-fluid">
+
     <div class="row">
         <div th:replace="fragments :: leftBanner"></div>
 
         <div class="col">
+            <div class="row align-items-start">
+                <div style="background-color:white;">
             <form method="post">
                 <th:block th:each="client :${clients}">
                     <div class="form-group">
@@ -21,11 +23,14 @@
                     </div>
                     <br></br>
                 </th:block>
+                </div>
                 <input type="submit" value="Delete" class="btn btn-danger">
             </form>
-        </div>
+
+                </div>
+            </div>
         <div th:replace="fragments :: rightBanner"></div>
     </div>
-</div>
+
 </body>
 </html>

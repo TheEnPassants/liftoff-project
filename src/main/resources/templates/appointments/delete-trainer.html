@@ -6,11 +6,12 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<div class="container-fluid">
     <div class="row">
         <div th:replace="fragments :: leftBanner"></div>
 
         <div class="col">
+            <div class="row align-items-start">
+                <div style="background-color:white;">
             <form method="post">
 
                 <th:block th:each="trainer :${trainers}">
@@ -22,13 +23,15 @@
                     </div>
                 </th:block>
                 <br></br>
+                </div>
                 <input type="submit" value="Delete" class="btn btn-danger">
 
-        </div>
-
+        </form>
+            </div>
+            </div>
         <div th:replace="fragments :: rightBanner"></div>
 
     </div>
-</div>
+
 </body>
 </html>
