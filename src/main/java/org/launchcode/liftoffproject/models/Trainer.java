@@ -9,10 +9,10 @@ public class Trainer {
     private int id;
     private static int nextId = 1;
     @NotBlank(message = "First Name is required!")
-    @Size(min = 3,max = 30,message = "First Name must be 3-20 characters long!")
+    @Size(min = 3,max = 30,message = "First Name must be 3-30 characters long!")
     private String fName;
     @NotBlank(message = "Last Name is required!")
-    @Size(min = 3,max = 30,message = "Last Name must be 3-50 characters long!")
+    @Size(min = 3,max = 30,message = "Last Name must be 3-30 characters long!")
     private String lName;
     @NotBlank(message = "Phone Number is required!")
     private String phone;

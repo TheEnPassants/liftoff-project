@@ -2,10 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace = "fragments :: head"></head>
 <body class = "container">
-
+<div th:replace="fragments :: topBanner"></div>
 <h1>Appointments</h1>
-<nav th:replace = "fragments :: navigation"></nav>
-<table class ="table table-striped">
+<nav th:replace="fragments :: navigation"></nav>
+
+    <div class="row">
+        <div th:replace="fragments :: leftBanner"></div>
+        <div class="col">
+<table class ="table table-dark">
     <thead>
     <tr>
         <th>ID</th>
@@ -35,9 +39,11 @@
     <li class="list-group-item" ><a href="/appointments/create">Create Appointment</a></li>
     <li class="list-group-item" ><a href="/appointments/delete-appointment">Delete Appointment</a></li>
 </ul>
+        </div>
 
+        <div th:replace="fragments :: rightBanner"></div>
 
-
+    </div>
 
 </body>
 </html>

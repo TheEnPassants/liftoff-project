@@ -1,68 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace = "fragments :: head"></head>
-<body class = "container">
-<nav th:replace = "fragments :: navigation"></nav>
-<form method="post" action ="/appointments/create">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<div th:replace="fragments :: topBanner"></div>
 
-    <div class ="form-group">
-    <label for="date">Date</label>
-    <input class="form-control" type="date" id="date" name="date">
-    </div>
-    <div class ="form-group">
-    <label for="time">Time</label>
-    <input class="form-control" type="time" id="time" name="time">
-    </div>
-    <div class = "form-group">
-        <lebel>Client
-            <select class="form-select form-select-lg" th:name = "client" >
-                <option th:each = "client : ${clients}"
-                        th:value = "${client.id}"
-                        th:text = "${client.fName} + ' ' + ${client.lName} ">
-                </option>
-            </select>
-        </lebel>
-    </div>
-
-    <div class = "form-group">
-        <lebel>Trainer
-            <select class="form-select form-select-lg" th:name = "trainer">
-                <option th:each = "trainer : ${trainers}"
-                        th:value = "${trainer.id}"
-                        th:text = "${trainer.fName} + ' ' + ${trainer.lName}  ">
-                </option>
-            </select>
-        </lebel>
-    </div>
+<nav th:replace="fragments :: navigation"></nav>
 
 
+    <div class="row">
+        <div th:replace="fragments :: leftBanner"></div>
 
+        <div class="col">
+            <div class="row align-items-start">
+                <div style="background-color:white;">
+            <form method="post" action="/appointments/create">
 
-    <div class = "form-group">
-        <lebel>Type
-            <select class="form-select form-select-lg" th:name = "type">
-                <option th:each = "type : ${types}"
-                        th:value = "${type}"
-                        th:text = "${type.displayName}">
-                </option>
-            </select>
-        </lebel>
-    </div>
-    <div class = "form-group">
-        <lebel>Level
-            <select class="form-select form-select-lg" th:name="level">
-                <option th:each = " level : ${levels}"
-                        th:value = "${level}"
-                        th:text = "${level.displayName}">
-                </option>
-            </select>
-        </lebel>
-    </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input class="form-control" type="date" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input class="form-control" type="time" id="time" name="time">
+                </div>
+                <div class="form-group">
+                    <lebel>Client
+                        <select class="form-select form-select-lg" th:name="client">
+                            <option th:each="client : ${clients}"
+                                    th:value="${client.id}"
+                                    th:text="${client.fName} + ' ' + ${client.lName} ">
+                            </option>
+                        </select>
+                    </lebel>
+                </div>
 
+                <div class="form-group">
+                    <lebel>Trainer
+                        <select class="form-select form-select-lg" th:name="trainer">
+                            <option th:each="trainer : ${trainers}"
+                                    th:value="${trainer.id}"
+                                    th:text="${trainer.fName} + ' ' + ${trainer.lName}  ">
+                            </option>
+                        </select>
+                    </lebel>
+                </div>
+                <div class="form-group">
+                    <lebel>Type
+                        <select class="form-select form-select-lg" th:name="type">
+                            <option th:each="type : ${types}"
+                                    th:value="${type}"
+                                    th:text="${type.displayName}">
+                            </option>
+                        </select>
+                    </lebel>
+                </div>
+                <div class="form-group">
+                    <lebel>Level
+                        <select class="form-select form-select-lg" th:name="level">
+                            <option th:each=" level : ${levels}"
+                                    th:value="${level}"
+                                    th:text="${level.displayName}">
+                            </option>
+                        </select>
+                    </lebel>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-success" type="submit" value="Create Appointment">
+                </div>
+            </form>
+        </div>
+            </div>
+        </div>
+        <div th:replace="fragments :: rightBanner"></div>
 
-    <div class ="form-group">
-  <input class="btn btn-success" type="submit" value="Create Appointment">
-    </div>
-</form>
+        </div>
 </body>
 </html>
