@@ -20,7 +20,7 @@
     <tr th:each="client : ${clients}">
         <td th:text="${client.id}"  ></td>
         <td th:text="${client.fName + ' ' + client.lName}"  ></td>
-        <td th:text="${client.dob}"></td>
+        <td th:text="${#dates.format(client.date, 'dd-MMM-yyyy')}"></td>
         <td th:text="${client.phone}"></td>
         <td th:text="${client.email}"></td>
         <td th:text="${client.note}"></td>

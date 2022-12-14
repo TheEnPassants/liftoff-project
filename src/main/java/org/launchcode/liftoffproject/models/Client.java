@@ -1,14 +1,19 @@
 package org.launchcode.liftoffproject.models;
 
 
-import javax.validation.Valid;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
-public class Client {
-    private int id;
-    private static int nextId = 1;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import java.util.Date;
+
+import static java.time.temporal.WeekFields.ISO;
+@Entity
+public class Client extends AbstractEntity {
+
 
     @NotBlank(message = "First Name is required!")
     @Size(min = 3,max = 30,message = "First Name must be 3-20 characters long!")
@@ -18,35 +23,33 @@ public class Client {
     private String lName;
     @NotBlank(message = "Phone Number is required!")
     private String phone;
-    @NotBlank(message = "Date of Birth is required!")
-    private String dob;
+
+
+    private Date date;
     @NotBlank(message = "Email Address is required!")
     @Email(message = "Invalid email address!")
     private String email;
     @Size(max = 100,message = "Note can not exceed 100 characters")
     private String note;
-    public Client(String fName,String lName,String dob,String phone,String email,String note){
-        this();
+    public Client(String fName,String lName,Date date,String phone,String email,String note){
+
         this.fName = fName;
         this.lName = lName;
         this.phone = phone;
         this.email = email;
-        this.dob = dob;
+        this.date = date;
         this.note = note;
 
     }
     public Client(){
-        this.id = nextId;
-        nextId++;
+
     }
 
-    public String getDob() {
-        return dob;
+    public Date getDate() {
+        return date;
     }
 
-    public int getId() {
-        return id;
-    }
+
 
     public String getEmail() {
         return email;
@@ -64,8 +67,8 @@ public class Client {
         this.email = email;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setDate(Date dob) {
+        this.date = dob;
     }
 
     public String getfName() {

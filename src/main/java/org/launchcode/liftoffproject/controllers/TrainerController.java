@@ -1,7 +1,10 @@
 package org.launchcode.liftoffproject.controllers;
 
+import org.launchcode.liftoffproject.data.ClientRepository;
 import org.launchcode.liftoffproject.data.TrainerData;
+import org.launchcode.liftoffproject.data.TrainerRepository;
 import org.launchcode.liftoffproject.models.Trainer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -12,11 +15,12 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("trainers")
 public class TrainerController {
-
+    @Autowired
+    private TrainerRepository trainerRepository;
 
     @GetMapping
     public String displayTrainers(Model model) {
-        model.addAttribute("trainers", TrainerData.getAll());
+        model.addAttribute("trainers", trainerRepository.findAll());
         return "appointments/trainers";
     }
 
@@ -34,15 +38,16 @@ public class TrainerController {
             return "appointments/add-trainer";
         }
 
+        trainerRepository.save(newTrainer);
         TrainerData.add(newTrainer);
-        System.out.println(TrainerData.getAll());
+
         return "redirect:";
     }
 
     @GetMapping("delete-trainer")
     public String displayDeleteClientForm(Model model){
         model.addAttribute("title","delete-trainer");
-        model.addAttribute("trainers", TrainerData.getAll());
+        model.addAttribute("trainers", trainerRepository.findAll());
         return "appointments/delete-trainer";
     }
 
@@ -51,7 +56,7 @@ public class TrainerController {
 
         if(trainerIds != null) {
             for (int id : trainerIds) {
-                TrainerData.remove(id);
+                trainerRepository.deleteById(id);
             }
         }
         return "redirect:";

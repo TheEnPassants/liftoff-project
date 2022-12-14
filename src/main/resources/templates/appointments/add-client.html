@@ -5,23 +5,23 @@
 <nav th:replace = "fragments :: navigation"></nav>
 <form method="post" action ="/clients/add-client">
     <div class ="form-group">
-    <label for="fName">First Name</label>
-    <input class="form-control" id = "fName" th:field="${client.fName}">
+        <label for="fName">First Name</label>
+        <input class="form-control" id = "fName" th:field="${client.fName}">
         <p class ="error" style ="color:red;" th:errors ="${client.fName}" ></p>
     </div>
     <div class ="form-group">
-    <label for="lastName">Last Name</label>
-    <input class="form-control" id = "lastName" th:field="${client.lName}" >
+        <label for="lastName">Last Name</label>
+        <input class="form-control" id = "lastName" th:field="${client.lName}" >
         <p class ="error" style ="color:red;" th:errors ="${client.lName}"></p>
     </div>
     <div class ="form-group">
-        <label for="dob">Date Of Birth</label>
-        <input class="form-control"  id="dob" th:field="${client.dob}">
-        <p class ="error" style ="color:red;" th:errors ="${client.dob}"></p>
+        <label for="date">Date Of Birth</label>
+        <input class="form-control" type="date" id="date" th:field="${client.date}">
+        <p class ="error" style ="color:red;" th:errors ="${client.date}"></p>
     </div>
     <div class ="form-group">
-    <label for="phone">Phone Number</label>
-    <input class="form-control"  id="phone" th:field="${client.phone}" >
+        <label for="phone">Phone Number</label>
+        <input class="form-control"  id="phone" th:field="${client.phone}" >
         <p class ="error" style ="color:red;" th:errors ="${client.phone}"></p>
     </div>
     <div class ="form-group">
@@ -31,11 +31,11 @@
     </div>
 
     <div class ="form-group">
-    <label for="note">Note</label>
-    <textarea class="form-control" id="note" th:field="${client.note}" rows="4" cols="50"></textarea>
+        <label for="note">Note</label>
+        <textarea class="form-control" id="note" th:field="${client.note}" rows="4" cols="50"></textarea>
     </div>
     <div class ="form-group">
-    <input class="btn btn-success" type="submit" value="Add Client">
+        <input class="btn btn-success" type="submit" value="Add Client">
     </div>
 </form>
 </body>

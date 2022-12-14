@@ -1,9 +1,8 @@
 package org.launchcode.liftoffproject.controllers;
 
-import org.launchcode.liftoffproject.data.AppointmentData;
-import org.launchcode.liftoffproject.data.ClientData;
-import org.launchcode.liftoffproject.data.TrainerData;
+import org.launchcode.liftoffproject.data.*;
 import org.launchcode.liftoffproject.models.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +13,17 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("appointments")
 public class AppointmentController {
+    @Autowired
+    AppointmentRepository appointmentRepository;
+    @Autowired
+    ClientRepository clientRepository;
+    @Autowired
+    TrainerRepository trainerRepository;
 
     @GetMapping
     public String displayAppointments(Model model) {
         model.addAttribute("title", "All Appointments");
-        model.addAttribute("appointments", AppointmentData.getAll());
+        model.addAttribute("appointments", appointmentRepository.findAll());
 
         return "appointments/index";
     }
@@ -29,22 +34,23 @@ public class AppointmentController {
                 model.addAttribute("appointment",new Appointment());
                 model.addAttribute("types", WorkoutType.values());
                 model.addAttribute("levels", WorkoutLevel.values());
-                model.addAttribute("clients", ClientData.getAll());
-                model.addAttribute("trainers", TrainerData.getAll());
+                model.addAttribute("clients", clientRepository.findAll());
+                model.addAttribute("trainers", trainerRepository.findAll());
 
         return "appointments/create";
     }
     @PostMapping("create")
     public String createAppointment(@RequestParam int trainer, @RequestParam int client,@RequestParam String date,@RequestParam String time,@RequestParam WorkoutType type,@RequestParam WorkoutLevel level){
 
-        AppointmentData.add(new Appointment(ClientData.getById(client),TrainerData.getById(trainer),date,time, type,level));
+
+        appointmentRepository.save(new Appointment(clientRepository.findById(client).get(),trainerRepository.findById(trainer).get(),date,time, type,level));
 
         return "redirect:";
     }
     @GetMapping("delete-appointment")
     public String displayDeleteAppointmentForm(Model model){
         model.addAttribute("title","delete-appointment");
-        model.addAttribute("appointments", AppointmentData.getAll());
+        model.addAttribute("appointments", appointmentRepository.findAll());
         return "appointments/delete-appointment";
     }
 
@@ -53,7 +59,7 @@ public class AppointmentController {
 
         if(appointmentIds!= null) {
             for (int id : appointmentIds) {
-                AppointmentData.remove(id);
+                appointmentRepository.deleteById(id);
             }
         }
         return "redirect:";

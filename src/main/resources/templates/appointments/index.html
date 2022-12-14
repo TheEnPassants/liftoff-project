@@ -19,8 +19,10 @@
     </thead>
     <tr th:each="appointment : ${appointments}">
         <td th:text="${appointment.id}"></td>
-        <td th:text="${appointment.trainer.fName}"></td>
-        <td th:text="${appointment.client.fName}"></td>
+
+        <td th:text="${appointment.client.fName} + ' ' + ${appointment.client.lName.charAt(0)}+'.'"></td>
+        <td th:text="${appointment.trainer.fName}+' '+ ${appointment.trainer.lName.charAt(0)+'.'}"></td>
+
         <td th:text="${appointment.type.displayName}"></td>
         <td th:text="${appointment.level.displayName}"></td>
         <td th:text="${appointment.date}"></td>

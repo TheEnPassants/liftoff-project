@@ -1,11 +1,15 @@
 package org.launchcode.liftoffproject.models;
 
-import java.util.Objects;
+import org.hibernate.annotations.ManyToAny;
 
-public class Appointment {
-    private int id;
-    private static int nextId = 1;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import java.util.Objects;
+@Entity
+public class Appointment extends AbstractEntity {
+    @ManyToOne
     private Client client;
+    @ManyToOne
     private Trainer trainer;
     private String date;
     private String time;
@@ -21,10 +25,9 @@ public class Appointment {
     }
 
 
+    public Appointment(Client client, Trainer trainer, String date, String time, WorkoutType type, WorkoutLevel level) {
 
-    public Appointment(Client client,Trainer trainer,  String date, String time, WorkoutType type, WorkoutLevel level) {
 
-        this();
         this.client = client;
         this.trainer = trainer;
         this.date = date;
@@ -34,60 +37,40 @@ public class Appointment {
 
 
     }
-    public Appointment(){
-        this.id =nextId;
-        nextId ++;
+
+    public Appointment() {
+
     }
 
 
-    public int getId() {
-        return id;
+    public Client getClient() {
+        return client;
     }
 
-    public Client getClient () {
-            return client;
-        }
-
-        public void setClient (Client client){
-            this.client = client;
-        }
-
-        public Trainer getTrainer () {
-            return trainer;
-        }
-
-        public void setTrainer (Trainer trainer){
-            this.trainer = trainer;
-        }
-
-        public String getDate () {
-            return date;
-        }
-
-        public void setDate (String date){
-            this.date = date;
-        }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Appointment that = (Appointment) o;
-        return id == that.id ;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public Trainer getTrainer() {
+        return trainer;
     }
 
-    public String getTime () {
-            return time;
-        }
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
 
-        public void setTime (String time){
-            this.time = time;
-        }
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
     public WorkoutType getType() {
         return type;
     }
@@ -96,4 +79,8 @@ public class Appointment {
         this.type = type;
     }
 
+    public void setTime(String time) {
+        this.time = time;
     }
+}
+
