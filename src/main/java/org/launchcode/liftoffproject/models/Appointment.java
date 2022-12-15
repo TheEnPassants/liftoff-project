@@ -4,14 +4,15 @@ import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import java.util.Date;
 import java.util.Objects;
 @Entity
-public class Appointment extends AbstractEntity {
+public class Appointment extends AbstractEntity implements Comparable<Appointment>{
     @ManyToOne
     private Client client;
     @ManyToOne
     private Trainer trainer;
-    private String date;
+    private Date date;
     private String time;
     private WorkoutLevel level;
     private WorkoutType type;
@@ -25,7 +26,7 @@ public class Appointment extends AbstractEntity {
     }
 
 
-    public Appointment(Client client, Trainer trainer, String date, String time, WorkoutType type, WorkoutLevel level) {
+    public Appointment(Client client, Trainer trainer, Date date, String time, WorkoutType type, WorkoutLevel level) {
 
 
         this.client = client;
@@ -59,11 +60,11 @@ public class Appointment extends AbstractEntity {
         this.trainer = trainer;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -81,6 +82,11 @@ public class Appointment extends AbstractEntity {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    @Override
+    public int compareTo(Appointment appointment) {
+        return getDate().compareTo(appointment.getDate());
     }
 }
 
