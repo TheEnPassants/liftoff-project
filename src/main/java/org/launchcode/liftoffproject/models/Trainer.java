@@ -11,8 +11,6 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 @Entity
 public class Trainer extends AbstractEntity{
-
-
     @NotBlank(message = "First Name is required!")
     @Size(min = 3,max = 30,message = "First Name must be 3-20 characters long!")
     private String fName;
