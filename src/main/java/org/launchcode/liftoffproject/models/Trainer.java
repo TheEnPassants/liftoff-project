@@ -1,18 +1,21 @@
 package org.launchcode.liftoffproject.models;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
-
-public class Trainer {
-    private int id;
-    private static int nextId = 1;
+@Entity
+public class Trainer extends AbstractEntity{
     @NotBlank(message = "First Name is required!")
-    @Size(min = 3,max = 30,message = "First Name must be 3-30 characters long!")
+    @Size(min = 3,max = 30,message = "First Name must be 3-20 characters long!")
     private String fName;
     @NotBlank(message = "Last Name is required!")
-    @Size(min = 3,max = 30,message = "Last Name must be 3-30 characters long!")
+    @Size(min = 3,max = 30,message = "Last Name must be 3-50 characters long!")
     private String lName;
     @NotBlank(message = "Phone Number is required!")
     private String phone;
@@ -20,32 +23,14 @@ public class Trainer {
     @Email(message = "Invalid email address!")
     private String email;
     public Trainer(String fName,String lName,String phone,String email){
-        this();
+
         this.fName = fName;
         this.lName = lName;
         this.phone = phone;
         this.email = email;
     }
     public Trainer(){
-        this.id = nextId;
-        nextId++;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Trainer trainer = (Trainer) o;
-        return id == trainer.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 
     public String getEmail() {

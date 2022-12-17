@@ -4,25 +4,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.Objects;
-
-
 @MappedSuperclass
 public abstract class AbstractEntity {
-
     @Id
     @GeneratedValue
     private int id;
-
-    public int getId() {
-        return id;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AbstractEntity entity = (AbstractEntity) o;
-        return id == entity.id;
+        AbstractEntity that = (AbstractEntity) o;
+        return id == that.id;
     }
 
     @Override
@@ -30,4 +23,7 @@ public abstract class AbstractEntity {
         return Objects.hash(id);
     }
 
+    public int getId() {
+        return id;
+    }
 }
