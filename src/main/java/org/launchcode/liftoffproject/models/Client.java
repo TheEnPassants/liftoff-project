@@ -6,9 +6,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.*;
 
 import static java.time.temporal.WeekFields.ISO;
 @Entity
@@ -23,8 +26,8 @@ public class Client extends AbstractEntity {
     private String lName;
     @NotBlank(message = "Phone Number is required!")
     private String phone;
-
-
+@OneToMany(mappedBy = "client")
+    private final List<Appointment>appointments = new ArrayList<>();
     private Date date;
     @NotBlank(message = "Email Address is required!")
     @Email(message = "Invalid email address!")
@@ -41,6 +44,11 @@ public class Client extends AbstractEntity {
         this.note = note;
 
     }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
     public Client(){
 
     }

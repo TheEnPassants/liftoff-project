@@ -5,9 +5,12 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 @Entity
 public class Trainer extends AbstractEntity{
@@ -19,12 +22,19 @@ public class Trainer extends AbstractEntity{
     @NotBlank(message = "Last Name is required!")
     @Size(min = 3,max = 30,message = "Last Name must be 3-50 characters long!")
     private String lName;
+    @OneToMany(mappedBy = "trainer")
+    private final List<Appointment> appointments = new ArrayList<>();
     @NotBlank(message = "Phone Number is required!")
     private String phone;
     @NotBlank(message = "Email Address is required")
     @Email(message = "Invalid email address!")
     private String email;
-    public Trainer(String fName,String lName,String phone,String email){
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public Trainer(String fName, String lName, String phone, String email){
 
         this.fName = fName;
         this.lName = lName;

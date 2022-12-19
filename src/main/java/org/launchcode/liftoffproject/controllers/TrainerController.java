@@ -31,6 +31,11 @@ public class TrainerController {
 
         return "appointments/add-trainer";
     }
+
+    public TrainerRepository getTrainerRepository() {
+        return trainerRepository;
+    }
+
     @PostMapping("add-trainer")
     public String addTrainer(@ModelAttribute @Valid Trainer newTrainer, Errors errors, Model model){
         if(errors.hasErrors()){

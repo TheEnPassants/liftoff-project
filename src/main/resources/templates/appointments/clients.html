@@ -19,7 +19,7 @@
     </thead>
     <tr th:each="client : ${clients}">
         <td th:text="${client.id}"  ></td>
-        <td th:text="${client.fName + ' ' + client.lName}"  ></td>
+        <td><a th:text="${client.fName + ' ' + client.lName}" th:href ="'/appointments?clientId=' + ${client.id}" ></a></td>
         <td th:text="${#dates.format(client.date, 'dd-MMM-yyyy')}"></td>
         <td th:text="${client.phone}"></td>
         <td th:text="${client.email}"></td>
