@@ -8,6 +8,13 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.col{
+width: 50%
+}
+
+.col.panels{
+width: 25%
+}
 
 div.banner{
 opacity: 0.8;
