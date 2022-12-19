@@ -17,10 +17,10 @@ public class Trainer extends AbstractEntity{
 
 
     @NotBlank(message = "First Name is required!")
-    @Size(min = 3,max = 30,message = "First Name must be 3-20 characters long!")
+    @Size(min = 3,max = 30,message = "First Name must be 3-30 characters long!")
     private String fName;
     @NotBlank(message = "Last Name is required!")
-    @Size(min = 3,max = 30,message = "Last Name must be 3-50 characters long!")
+    @Size(min = 3,max = 30,message = "Last Name must be 3-30 characters long!")
     private String lName;
     @OneToMany(mappedBy = "trainer")
     private final List<Appointment> appointments = new ArrayList<>();

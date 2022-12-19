@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace = "fragments :: head"></head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head> <!--Replaces using th:replace="(file_name) :: (name in file)-->
 
-<h1> Gym Manager </h1>
+<body class="container">
+<div th:replace="fragments :: topBanner"></div>
+<h1>Home</h1>
+<nav th:replace="fragments :: navigation"></nav>
 
-<nav th:replace = "fragments :: navigation"></nav>
+
+    <div class="row">
+        <div th:replace="fragments :: leftBanner"></div>
+
+        <div class="col">
+            <table class="flex-fill">
+                <tr>
+                    <td><a href="/clients"><img th:src="@{/images/clients.png}"/></a></td>
+                    <td><a href="/trainers"><img th:src="@{/images/trainers.png}"/></a></td>
+                    <td><a href="/appointments"><img th:src="@{/images/appointments.png}"/></a></td>
+                </tr>
+            </table>
+        </div>
+        <div th:replace="fragments :: rightBanner"></div>
+    </div>
 
 </body>
 </html>

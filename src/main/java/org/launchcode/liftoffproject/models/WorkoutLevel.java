@@ -1,7 +1,7 @@
 package org.launchcode.liftoffproject.models;
 
 public enum WorkoutLevel {
-    BEGGINER("Begginer"),
+    BEGGINER("Beginner"),
     INTERMEDIATE("Intermediate"),
     ADVANCED("Advanced");
 
