@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace = "fragments :: head"></head>
-<body class = "container">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<div th:replace="fragments :: topBanner"></div>
 
 <h1>Clients</h1>
+
 <nav th:replace = "fragments :: navigation"></nav>
 
 <table class ="table table-striped">
@@ -32,6 +34,7 @@
     <li class="list-group-item"><a href="/clients/add-client">Add Client</a></li>
     <li class="list-group-item"><a href="/clients/delete-client">Delete Client</a></li>
 </ul>
+
 
 
 </body>

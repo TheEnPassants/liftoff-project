@@ -34,7 +34,12 @@ public class AppointmentController {
     }
 
     @GetMapping
+
     public String displayAppointments(@RequestParam(required = false) Integer trainerId,@RequestParam(required = false) Integer clientId, Model model) {
+
+//    public String displayAppointments(Model model) {
+//        model.addAttribute("title", "All Appointments");
+//        model.addAttribute("appointments", findAllByDate());
 
 
         if (clientId == null) {
@@ -81,11 +86,17 @@ public class AppointmentController {
     @PostMapping("create")
     public String createAppointment(@RequestParam int trainer, @RequestParam int client, @RequestParam(value = "date",required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date date, @RequestParam String time, @RequestParam WorkoutType type, @RequestParam WorkoutLevel level){
 
+
         if(date == null){
             return "appointments/create";
         }else {
             appointmentRepository.save(new Appointment(clientRepository.findById(client).get(), trainerRepository.findById(trainer).get(), date, time, type, level));
         }
+
+
+
+//        appointmentRepository.save(new Appointment(clientRepository.findById(client).get(),trainerRepository.findById(trainer).get(),date,time, type,level));
+
 
         return "redirect:";
     }
