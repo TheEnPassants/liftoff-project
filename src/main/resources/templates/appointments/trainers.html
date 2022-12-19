@@ -24,7 +24,7 @@
     </thead>
     <tr th:each="trainer : ${trainers}">
         <td th:text="${trainer.id}"  ></td>
-        <td th:text="${trainer.fName + ' ' + trainer.lName}"  ></td>
+        <td><a th:text="${trainer.fName + ' ' + trainer.lName}" th:href ="'/appointments?clientId=' + ${trainer.id}" ></a></td>
         <td th:text="${trainer.phone}"></td>
         <td th:text="${trainer.email}"></td>
 
